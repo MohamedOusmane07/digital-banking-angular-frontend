@@ -6,16 +6,34 @@
         <div class="mb-3">
           <label class="form-label">LastName:</label>
           <input type="text" formControlName="lastName" class="form-control">
+          <span class="text-danger"
+                *ngIf="newCustomerFormGroup.controls['lastName'].touched
+                && newCustomerFormGroup.controls['lastName'].errors
+                && newCustomerFormGroup.controls['lastName'].errors!['required']">
+            LastName is required
+          </span>
         </div>
 
         <div class="mb-3">
           <label class="form-label">FirstName:</label>
           <input type="text" formControlName="firstName" class="form-control">
+          <span class="text-danger"
+                *ngIf="newCustomerFormGroup.controls['firstName'].touched
+                && newCustomerFormGroup.controls['firstName'].errors
+                && newCustomerFormGroup.controls['firstName'].errors!['required']">
+            FirstName is required
+          </span>
         </div>
 
         <div class="mb-3">
           <label class="form-label">Email:</label>
           <input type="text" formControlName="email" class="form-control">
+          <span class="text-danger"
+                *ngIf="newCustomerFormGroup.controls['email'].touched
+                && newCustomerFormGroup.controls['email'].errors
+                && newCustomerFormGroup.controls['email'].errors!['email']">
+            Email is not Valid
+          </span>
         </div>
         <button [disabled]="!newCustomerFormGroup.valid" class="btn btn-info">
           <i class="bi bi-save">Save</i>
