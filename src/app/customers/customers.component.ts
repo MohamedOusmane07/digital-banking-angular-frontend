@@ -4,6 +4,7 @@ import {CustomerService} from "../services/customer.service";
 import {catchError, map, Observable, throwError} from "rxjs";
 import {Customer} from "../model/customer.model";
 import {FormBuilder, FormGroup} from "@angular/forms";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-customers',
@@ -16,7 +17,7 @@ export class CustomersComponent  implements OnInit{
   searchFormGroup : FormGroup|undefined;
 
   //On injecte le service HttpClient au niveau du constructeur
-  constructor(private customerService : CustomerService, private fb : FormBuilder ) {
+  constructor(private customerService : CustomerService, private fb : FormBuilder,private router:Router ) {
   }
 
   //La méthode qui s'exécute au démarrage, c'est-à-dire au moment du chargement du composant
@@ -61,5 +62,8 @@ this.handleSearchCustomers();
     }
 
 
+  handleCustomerAccounts(c: Customer) {
+    this.router.navigateByUrl("/customer-accounts/"+c.id, {state:c});
 
+  }
 }

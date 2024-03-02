@@ -1,0 +1,31 @@
+<div class="container">
+  {{customerId}}
+  {{customer | json}}
+  <div class="card">
+    <div class="card-header">BankAccount</div>
+    <div class="card-body">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>
+            Type
+          </th>
+          <th>
+            Account Id
+          </th>
+          <th>
+            Balance
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let bankAccount of accountDTO | async">
+          <td>{{bankAccount.type}}</td>
+          <td>{{bankAccount.id}}</td>
+          <td>{{bankAccount.balance}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

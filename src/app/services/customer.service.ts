@@ -25,5 +25,6 @@ export class CustomerService {
 
   public deleteCustomer(id : number){
     return this.http.delete(environment.backendHost+"/customers/"+id);
+
   }
 }
